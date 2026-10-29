@@ -1,10 +1,14 @@
 # Logs, models, and output
-logs/*
-!logs/.hidden_file.txt
-output/*
-!output/.hidden_file.txt
-models/*
-!models/.hidden_file.txt
+**/logs/*
+!**/logs/.hidden_file.txt
+*.log
+
+**/output/*
+!**/output/.hidden_file.txt
+
+**/models/*
+!**/models/.hidden_file.txt
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

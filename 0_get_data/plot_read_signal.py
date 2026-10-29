@@ -8,10 +8,10 @@ import numpy as np
 import pod5
 
 # Using the example pod5 file provided
-base_dir = "/projects/a9009/tdm5510/workshops/gpu_dorado_genomics_112026/data"
-example_pod5 = base_dir + "/fungal_ITS_2025.09/raw/T1_B1_pod5_subset_ITS_FBB34176.pod5"
+base_dir = "./output"
+example_pod5 = base_dir + "/T1_B1_pod5_subset_ITS_FBB34176.pod5"
 selected_read_id = 'c10d82c1-9c6a-44af-8065-0aa269619e50'
-output_dir = base_dir + "/output"
+output_dir = base_dir
 
 with pod5.Reader(example_pod5) as reader:
 
@@ -32,7 +32,7 @@ with pod5.Reader(example_pod5) as reader:
     ax.plot(
         time,
         signal,
-        color="steelblue",
+        color="darkblue",
         linewidth=0.7
     )
 
@@ -48,7 +48,7 @@ with pod5.Reader(example_pod5) as reader:
 
     plt.tight_layout()
 
-    plt.savefig(output_dir + "/" + selected_read_id + "_signal_plot.png", dpi=400)
+    plt.savefig(output_dir + "/" + selected_read_id + "_signal_plot.png", dpi=500)
 
     plt.close()
 
