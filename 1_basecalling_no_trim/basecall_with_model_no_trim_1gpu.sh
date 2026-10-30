@@ -15,7 +15,7 @@ model_tag="hac"
 
 # Define directories
 MODEL_DIR=./models
-DATA_DIR=../0_get_data/output
+DATA_DIR=/projects/e32559/05_dorado/shared_data
 OUT_DIR=./output
 
 echo "Model tag: $model_tag"
