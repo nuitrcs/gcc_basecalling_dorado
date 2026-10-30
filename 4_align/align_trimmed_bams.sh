@@ -1,8 +1,6 @@
 #!/bin/bash
-##SBATCH --account=e32559
-##SBATCH --partition=short
-#SBATCH --account=a9009
-#SBATCH --partition=a9009
+#SBATCH --account=e32559
+#SBATCH --partition=short
 #SBATCH --time=01:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1    
@@ -11,11 +9,11 @@
 #SBATCH --out=./logs/align_trimmed-slurm-%j.out
 
 # Define output paths to analyze
-BASE_DIR="../demux_no_trim/output"
+# Make sure the reference fasta exists in the 
+# right location before running this job 
+BASE_DIR="../2_demux_no_trim/output"
 OUT_DIR="./output"
 REF_FASTA="./sh_general_release_dynamic_19.02.2025.fasta"
-
-mkdir -p "$OUT_DIR"
 
 # Find all trimmed BAM files
 mapfile -t BAM_FILES < <(find "$BASE_DIR" -type f -name '*-trimmed.bam')
@@ -36,5 +34,4 @@ for bam in "${BAM_FILES[@]}"; do
 	dorado aligner "$REF_FASTA" "$bam" --output-dir "$OUT_DIR" --emit-summary
 
 done
-
 

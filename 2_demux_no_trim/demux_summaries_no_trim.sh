@@ -1,8 +1,6 @@
 #!/bin/bash
-##SBATCH --account=e32559
-##SBATCH --partition=short
-#SBATCH --account=a9009
-#SBATCH --partition=a9009
+#SBATCH --account=e32559
+#SBATCH --partition=short
 #SBATCH --time=01:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1    
@@ -30,8 +28,7 @@ module load dorado/2.1.1
 module load mamba/24.3.0
 eval "$('/hpc/software/mamba/24.3.0/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 source "/hpc/software/mamba/24.3.0/etc/profile.d/mamba.sh"
-mamba activate /gpfs/projects/a9009/tdm5510/workshops/gpu_dorado_genomics_112026/pycoqc_env
-
+mamba activate /gpfs/projects/e32559/05_dorado/virtual_environments/pycoqc_env
 
 # Summarize each BAM separately
 for bam in "${BAM_FILES[@]}"; do
@@ -46,9 +43,6 @@ for bam in "${BAM_FILES[@]}"; do
 	pycoQC -f "./$OUT_DIR/summary-$bam_name.tsv" -o "./$OUT_DIR/pycoQC_output-$bam_name.html"
 
 done
-
-
-
 
 
 

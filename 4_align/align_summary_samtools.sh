@@ -1,8 +1,6 @@
 #!/bin/bash
-##SBATCH --account=e32559
-##SBATCH --partition=short
-#SBATCH --account=a9009
-#SBATCH --partition=a9009
+#SBATCH --account=e32559
+#SBATCH --partition=short
 #SBATCH --time=01:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1    
@@ -13,11 +11,11 @@
 # Define output paths to analyze
 BASE_DIR="./output"
 
-# Find all trimmed BAM files
+# Find all aligned BAM files
 mapfile -t BAM_FILES < <(find "$BASE_DIR" -type f -name '*.bam')
 
-# Print the trimmed BAM files
-echo "Found trimmed files: "
+# Print the aligned BAM files
+echo "Found aligned files: "
 printf '%s\n' "${BAM_FILES[@]}"
 
 # Load software

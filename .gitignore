@@ -2,6 +2,7 @@
 **/logs/*
 !**/logs/.hidden_file.txt
 *.log
+*.fasta
 
 **/output/*
 !**/output/.hidden_file.txt
